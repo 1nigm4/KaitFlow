@@ -22,7 +22,10 @@ namespace Flow
             var currentAssembly = Assembly.GetEntryAssembly();
             var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
             var libDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
+
             VlcPlayer.SourceProvider.CreatePlayer(libDirectory, null);
+            VlcPlayer.SourceProvider.MediaPlayer.Playing += (o, e) => Dispatcher.Invoke(() => Screen.Visibility = Visibility.Hidden);
+            VlcPlayer.SourceProvider.MediaPlayer.EndReached += (o, e) => Dispatcher.Invoke(() => Screen.Visibility = Visibility.Visible);
 
             _streamUri = ConfigurationManager.AppSettings.Get("StreamUri");
 
@@ -53,8 +56,6 @@ namespace Flow
         {
             VlcPlayer.SourceProvider.MediaPlayer.SetMedia(_streamUri);
             VlcPlayer.SourceProvider.MediaPlayer.Play();
-            VlcPlayer.SourceProvider.MediaPlayer.Playing += (o, e) => Dispatcher.Invoke(() => Screen.Visibility = Visibility.Hidden);
-            VlcPlayer.SourceProvider.MediaPlayer.EndReached += (o, e) => Dispatcher.Invoke(() => Screen.Visibility = Visibility.Visible);
         }
 
         private void Panel_MouseEnter(object sender, MouseEventArgs e) => Panel.Opacity = 100;
