@@ -19,11 +19,11 @@ namespace Flow.Windows
         {
             InitializeComponent();
 
-            this.SetBackground();
-
             var currentAssembly = Assembly.GetEntryAssembly();
             _currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
             var libDirectory = new DirectoryInfo(Path.Combine(_currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
+
+            this.SetBackground();
 
             VlcPlayer.SourceProvider.CreatePlayer(libDirectory, null);
             VlcPlayer.SourceProvider.MediaPlayer.Playing += MediaPlayer_Playing;
