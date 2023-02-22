@@ -1,0 +1,30 @@
+﻿<Window x:Class="Flow.Windows.OptionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flow.Windows"
+        mc:Ignorable="d"
+        Title="OptionsWindows" Height="130" Width="400" Background="#8CFFFFFF" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="0 25">
+        <Grid VerticalAlignment="Center" Width="300">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Видеопоток: "/>
+            <TextBox Name="StreamUrl" Grid.Column="1"/>
+            <TextBlock Grid.Row="1" Text="Заставка: " Margin="0 10"/>
+            <TextBox Name="BackgroundUrl" AllowDrop="True" PreviewDragOver="BackgroundUrl_DragOver" Drop="BackgroundUrl_Drop" Grid.Row="1" Grid.Column="1" Margin="0 10"/>
+        </Grid>
+        <DockPanel HorizontalAlignment="Center">
+            <Button Content="Сохранить и выйти" Margin="0 0 10 0" Width="150" Click="SaveButton_Click"/>
+            <Button Content="Отмена" Width="110" Click="CancelButton_Click"/>
+        </DockPanel>
+    </StackPanel>
+</Window>
