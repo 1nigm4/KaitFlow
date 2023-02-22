@@ -1,0 +1,34 @@
+﻿<Window x:Class="Flow.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flow"
+        xmlns:Vlc="clr-namespace:Vlc.DotNet.Wpf;assembly=Vlc.DotNet.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None" Cursor="None">
+    <Grid>
+        <Vlc:VlcControl Name="VlcPlayer"/>
+        <Image Name="Background" Source="/Resources/Screen.jpg" Stretch="Fill"/>
+        <Grid Name="Panel" MouseEnter="Panel_MouseEnter" Cursor="Arrow" MouseLeave="Panel_MouseLeave" Height="35" Opacity="0" VerticalAlignment="Top" Background="#66FFFFFF">
+            <Button Style="{DynamicResource ButtonStyle1}" Width="35" BorderThickness="0" Click="SettingsButton_Click" HorizontalAlignment="Left">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/settings.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <TextBlock Text="KaitFlow" FontSize="24" FontWeight="Bold" Margin="40 0" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Style="{DynamicResource ButtonStyle1}" Width="35" BorderThickness="0" Click="PopupButton_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Resources/minus.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Style="{DynamicResource ButtonStyle1}" Width="35" BorderThickness="0" Click="ExitButton_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Resources/reject.png"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
