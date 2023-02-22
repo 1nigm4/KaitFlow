@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="minus.png" />
     <None Remove="reject.png" />
+    <None Remove="Resources\settings.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,15 +19,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="reject.png" />
+    <Resource Include="Resources\reject.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="minus.png" />
+    <Resource Include="Resources\minus.png" />
+    <Resource Include="Resources\settings.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Screen.jpg">
+    <None Update="Resources\Screen.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
